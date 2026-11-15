@@ -1,0 +1,32 @@
+{
+  "name": "vault-guard",
+  "version": "0.1.0",
+  "description": "Human-approved, content-addressed version guard for Syncthing Markdown folders",
+  "type": "module",
+  "private": true,
+  "bin": {
+    "vault-guard": "./bin/vault-guard.js"
+  },
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jeon-HyeongJoon/vault-guard.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Jeon-HyeongJoon/vault-guard/issues"
+  },
+  "homepage": "https://github.com/Jeon-HyeongJoon/vault-guard#readme",
+  "scripts": {
+    "test": "node --test",
+    "check": "node --check bin/vault-guard.js && node --check src/*.js"
+  },
+  "engines": {
+    "node": ">=22.5"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "yaml": "2.9.1"
+  }
+}

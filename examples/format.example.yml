@@ -1,0 +1,30 @@
+version: 1
+name: markdown-project
+
+variables:
+  NUMBER: '\d+(?:[-.]\d+)*'
+  STATUS: '🔴|⏸|🔄|✅|⭐|⬜|📌|🟡|🌱|🔚'
+
+files:
+  - match: '다음할일.md'
+    minFiles: 1
+    maxFiles: 1
+    rules:
+      - id: title
+        pattern: '^# (?<title>.+)$'
+        min: 1
+        max: 1
+        message: '{{file}}에 문서 제목이 하나 있어야 합니다'
+      - id: numbered-item
+        pattern: '^(?<number>{{NUMBER}})\.\s+(?<status>{{STATUS}})?.*$'
+        min: 1
+        message: '{{file}}에서 번호 할 일을 찾지 못했습니다'
+    order: [title, numbered-item]
+
+  - match: 'log*.md'
+    minFiles: 0
+    rules:
+      - id: dated-entry
+        pattern: '^## (?<date>\d{4}-\d{2}-\d{2}).*$'
+        min: 1
+        message: '{{file}}에 날짜 로그가 없습니다'

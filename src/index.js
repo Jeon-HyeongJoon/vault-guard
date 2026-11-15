@@ -1,0 +1,7 @@
+export { CONFIG_VERSION, createConfig, defaultDataHome, discoverConfig, loadConfig, saveConfig, validateConfig } from './config.js'
+export { VaultGuard, engineInternals } from './engine.js'
+export { formatInternals, loadFormatProfile, validateFormatting } from './format.js'
+export { assessRisk, diffFiles } from './policy.js'
+export { scanDirectory, scanStable } from './scan.js'
+export { openStore } from './store.js'
+export { startWatcher } from './watcher.js'
