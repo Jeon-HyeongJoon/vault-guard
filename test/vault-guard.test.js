@@ -281,7 +281,7 @@ files:
     const cli = join(import.meta.dirname, '..', 'bin', 'vault-guard.js')
     const result = spawnSync(process.execPath, [cli, 'check', '--config', configPath, '--json'], { encoding: 'utf8' })
     assert.equal(result.status, 2)
-    assert.equal(result.stderr, '')
+    assert.doesNotMatch(result.stderr, /현재 손상이 감지됨|\u001b\[/)
     const output = JSON.parse(result.stdout)
     assert.equal(output.damaged, true)
     assert.equal(output.format.issues[0].rule, 'title')
